@@ -3,9 +3,7 @@
   "nome": "",
   "sobrenome": "",
   "titulo_perfil":"",
-  "setor":{
-    ""
-  }
+  "setor":"",
   "localidade":{
     "pais":"",
     "estado":"",
@@ -81,13 +79,18 @@
 
   "interesses":{
     "instituicao_ensino":[
-      "id":"",
-      "nome":""
+      {
+        "id":"",
+        "nome":""
+      }
     ],
 
     "empresa":[
-      "id":"",
-      "nome":""
+      {
+        "id":"",
+        "nome":""
+      }
+   
     ]
   }
 
