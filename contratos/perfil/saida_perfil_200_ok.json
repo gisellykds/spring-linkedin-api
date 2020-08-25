@@ -92,6 +92,16 @@
       }
    
     ]
+  }, 
+
+  "conexoes":{
+    "numero_conexoes":"",
+    "conexoes_perfil":[
+      {
+          "id":"",
+          "grau":""
+      }
+    ]
   }
 
 }
