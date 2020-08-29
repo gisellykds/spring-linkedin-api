@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class EmailPerfil {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", unique = true)
     private Long id;
 

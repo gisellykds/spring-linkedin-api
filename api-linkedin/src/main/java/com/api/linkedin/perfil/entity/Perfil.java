@@ -11,7 +11,7 @@ import java.util.List;
 public class Perfil {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", unique = true)
     private Long id;
 
@@ -27,28 +27,27 @@ public class Perfil {
     @Column(name = "setor", nullable = false)
     private String setor;
 
-    @OneToOne(cascade = CascadeType.REFRESH)
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "localidade_fk", referencedColumnName = "id")
     private Localidade localidade;
 
-    @OneToOne(cascade = CascadeType.REFRESH)
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "informacoes_contato_fk", referencedColumnName = "id")
     private InformacoesContato informacoesContato;
 
-    @OneToMany(cascade = CascadeType.REFRESH)
+    @OneToMany(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "perfil_experiencia_profissional_fk", referencedColumnName = "id")
     private List<ExperienciaProfissional> experienciaProfissional = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.REFRESH)
+    @OneToMany(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "perfil_formacao_academica_fk", referencedColumnName = "id")
     private List<FormacaoAcademica> formacaoAcademica = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.REFRESH)
+    @OneToMany(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "perfil_licenca_certificado_fk", referencedColumnName = "id")
     private List<LicencaCertificado> licencaCertificado = new ArrayList<>();
 
-    @OneToOne(cascade = CascadeType.REFRESH)
-    @JoinColumn(name = "usuario_fk", referencedColumnName = "id")
-    private Usuario usuario;
+    @Column(nullable = false, name = "id_usuario")
+    private Long idUsuario;
 
 }

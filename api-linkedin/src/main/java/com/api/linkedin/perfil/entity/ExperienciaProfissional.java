@@ -1,9 +1,9 @@
 package com.api.linkedin.perfil.entity;
 
-import com.api.linkedin.perfil.domain.enums.TipoEmpregoEnum;
+import com.api.linkedin.utils.enums.TipoEmprego;
 import lombok.Data;
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.YearMonth;
 
 @Data
 @Entity
@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class ExperienciaProfissional {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", unique = true)
     private Long id;
 
@@ -19,7 +19,7 @@ public class ExperienciaProfissional {
     private String cargo;
 
     @Column(name = "tipo_emprego", nullable = false)
-    private TipoEmpregoEnum tipoEmprego;
+    private TipoEmprego tipoEmprego;
 
     @Column(name = "descricao", nullable = false)
     private String descricao;
@@ -31,12 +31,12 @@ public class ExperienciaProfissional {
     private Boolean trabalhoAtual;
 
     @Column(name = "mes_inicio", nullable = false)
-    private LocalDate mesInicio;
+    private YearMonth mesInicio;
 
     @Column(name = "mes_fim", nullable = false)
-    private LocalDate mesFim;
+    private YearMonth mesFim;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "localidade_fk", referencedColumnName = "id")
     private Localidade localidade;
 

@@ -1,8 +1,8 @@
-package com.api.linkedin.perfil.domain.enums;
+package com.api.linkedin.utils.enums;
 
 import lombok.Getter;
 
-public enum TipoEmpregoEnum {
+public enum TipoEmprego {
     TEMPO_INTEGRAL("0"),
     MEIO_PERIODO("1"),
     AUTONOMO("2"),
@@ -18,14 +18,14 @@ public enum TipoEmpregoEnum {
     @Getter
     private String value;
 
-    TipoEmpregoEnum(String value) {
+    TipoEmprego(String value) {
         this.value = value;
     }
 
-    public TipoEmpregoEnum get(String id){
-        for (TipoEmpregoEnum tipoEmpregoEnum : TipoEmpregoEnum.values()){
-            if (tipoEmpregoEnum.getValue().equals(id)) {
-                return tipoEmpregoEnum;
+    public TipoEmprego get(String id){
+        for (TipoEmprego tipoEmprego : TipoEmprego.values()){
+            if (tipoEmprego.getValue().equals(id)) {
+                return tipoEmprego;
             }
         }
         return DEFAULT;

@@ -11,15 +11,15 @@ import java.util.Set;
 public class InformacoesContato {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", unique = true)
     private Long id;
 
-    @OneToMany(cascade = CascadeType.REFRESH)
+    @OneToMany(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "informacoes_email_fk", referencedColumnName = "id")
     private Set<EmailPerfil> email = new HashSet<>();
 
-    @OneToMany(cascade = CascadeType.REFRESH)
+    @OneToMany(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "informacoes_site_fk", referencedColumnName = "id")
     private Set<SitePerfil> site = new HashSet<>();
 

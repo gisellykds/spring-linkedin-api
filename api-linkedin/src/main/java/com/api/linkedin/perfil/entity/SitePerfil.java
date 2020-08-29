@@ -1,6 +1,6 @@
 package com.api.linkedin.perfil.entity;
 
-import com.api.linkedin.perfil.domain.enums.TipoSiteEnum;
+import com.api.linkedin.utils.enums.TipoSite;
 import lombok.Data;
 import javax.persistence.*;
 
@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class SitePerfil {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", unique = true)
     private Long id;
 
@@ -18,5 +18,6 @@ public class SitePerfil {
     private String site;
 
     @Column(name = "tipo_site", nullable = false)
-    private TipoSiteEnum tipoSiteEnum;
+    private TipoSite tipoSite;
+
 }

@@ -5,6 +5,7 @@ import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotBlank;
+import java.time.Year;
 
 @Data
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -20,11 +21,11 @@ public class FormacaoAcademicaEntrada {
 
     @NotBlank(message = "{variavel.notblank}" + "ano_inicio")
     @JsonProperty(value = "ano_inicio")
-    private Integer anoInicio;
+    private Year anoInicio;
 
     @NotBlank(message = "{variavel.notblank}" + "ano_fim")
     @JsonProperty(value = "ano_fim")
-    private Integer anoFim;
+    private Year anoFim;
 
     @NotBlank(message = "{variavel.notblank}" + "nota")
     @JsonProperty(value = "nota")

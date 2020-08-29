@@ -11,7 +11,7 @@ import javax.validation.constraints.NotBlank;
 public class LocalidadeEntrada {
 
     @NotBlank(message = "{variavel.notblank}" + "pais")
-    @JsonProperty(value = "nome")
+    @JsonProperty(value = "pais")
     private String pais;
 
     @NotBlank(message = "{variavel.notblank}" + "estado")

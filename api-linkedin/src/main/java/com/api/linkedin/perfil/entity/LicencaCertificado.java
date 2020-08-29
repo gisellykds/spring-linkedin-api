@@ -3,6 +3,7 @@ package com.api.linkedin.perfil.entity;
 import lombok.Data;
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.YearMonth;
 
 @Data
 @Entity
@@ -10,7 +11,7 @@ import java.time.LocalDate;
 public class LicencaCertificado {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", unique = true)
     private Long id;
 
@@ -30,8 +31,8 @@ public class LicencaCertificado {
     private Boolean certificacaoExpira;
 
     @Column(name = "mes_ano_emissao", nullable = false)
-    private LocalDate mesAnoEmissao;
+    private YearMonth mesAnoEmissao;
 
     @Column(name = "mes_ano_expiracao", nullable = true)
-    private LocalDate mesAnoExpiracao;
+    private YearMonth mesAnoExpiracao;
 }

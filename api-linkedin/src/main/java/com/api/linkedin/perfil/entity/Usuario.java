@@ -1,6 +1,6 @@
 package com.api.linkedin.perfil.entity;
 
-import com.api.linkedin.perfil.domain.enums.StatusEnum;
+import com.api.linkedin.utils.enums.Status;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -9,10 +9,11 @@ import java.time.LocalDate;
 
 @Data
 @Entity
+@Table(name = "tb_usuario")
 public class Usuario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
@@ -22,6 +23,10 @@ public class Usuario {
     private LocalDate dateCreation;
 
     @Column(nullable = false, name = "status")
-    private StatusEnum status;
+    private Status status;
+
+    public Usuario(){
+        this.status = Status.ATIVO;
+    }
 
 }

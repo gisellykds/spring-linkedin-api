@@ -2,6 +2,7 @@ package com.api.linkedin.perfil.entity;
 
 import lombok.Data;
 import javax.persistence.*;
+import java.time.Year;
 
 @Data
 @Entity
@@ -9,7 +10,7 @@ import javax.persistence.*;
 public class FormacaoAcademica {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", unique = true)
     private Long id;
 
@@ -20,10 +21,10 @@ public class FormacaoAcademica {
     private String areaEstudo;
 
     @Column(name = "ano_inicio", nullable = false)
-    private Integer anoInicio;
+    private Year anoInicio;
 
     @Column(name = "ano_fim", nullable = false)
-    private Integer anoFim;
+    private Year anoFim;
 
     @Column(name = "nota", nullable = true)
     private String nota;
