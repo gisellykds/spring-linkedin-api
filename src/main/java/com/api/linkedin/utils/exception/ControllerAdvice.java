@@ -5,7 +5,6 @@ import com.api.linkedin.utils.exception.response.ResponseException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import springfox.documentation.annotations.ApiIgnore;
 import javax.servlet.http.HttpServletRequest;
 
 @RestControllerAdvice

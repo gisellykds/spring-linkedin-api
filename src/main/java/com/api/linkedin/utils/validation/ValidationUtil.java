@@ -6,7 +6,6 @@ import com.api.linkedin.utils.exception.response.ApiLinkedinException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
-
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
@@ -33,9 +32,19 @@ public class ValidationUtil {
             throw new ApiLinkedinException(HttpStatus.BAD_REQUEST, getMessage(codErro));
     }
 
+    protected void verificaIsAtiva(Status status, String codErro) {
+        if (status.equals(Status.ATIVO))
+            throw new ApiLinkedinException(HttpStatus.BAD_REQUEST, getMessage(codErro));
+    }
+
     protected void verificaIsNotNull(Object object, String codErro){
         if (object.equals(null))
             throw new ApiLinkedinException(HttpStatus.NOT_FOUND, getMessage(codErro));
+    }
+
+    protected void verificaIsNull(Object object, String codErro){
+        if (!object.equals(null))
+            throw new ApiLinkedinException(HttpStatus.BAD_REQUEST, getMessage(codErro));
     }
 
     protected void verificaListaVazia(List<?> list){

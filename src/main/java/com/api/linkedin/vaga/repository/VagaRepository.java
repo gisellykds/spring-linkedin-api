@@ -16,7 +16,7 @@ public interface VagaRepository extends JpaRepository<Vaga, Long> {
 
     @Modifying
     @Transactional
-    @Query("UPDATE Vaga AS v SET v.statusVaga = 'FINALIZADO' WHERE v.id = :id")
+    @Query("UPDATE Vaga AS v SET v.statusVaga = '1' WHERE v.id = :id")
     void encerraCandidatura(@Param("id") Long id);
 
     List<Vaga> findAllByStatusVaga(StatusVaga aberto);
