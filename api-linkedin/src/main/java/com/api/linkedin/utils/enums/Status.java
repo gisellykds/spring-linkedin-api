@@ -13,7 +13,7 @@ public enum Status {
         this.value = value;
     }
 
-    public Status get(String text){
+    public static Status get(String text){
         for (Status status : Status.values()){
             if (status.getValue().equals(text)) {
                 return status;

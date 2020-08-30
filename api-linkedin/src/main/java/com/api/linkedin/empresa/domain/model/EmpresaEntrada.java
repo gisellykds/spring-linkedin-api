@@ -20,13 +20,11 @@ public class EmpresaEntrada {
 
     @NotBlank
     @JsonProperty(value = "setor")
-    @Enumerated(EnumType.STRING)
-    private Setor setor;
+    private String setor;
 
     @NotBlank
     @JsonProperty("tipo_empresa")
-    @Enumerated(EnumType.STRING)
-    private TipoEmpresa tipoEmpresa;
+    private String tipoEmpresa;
 
     @JsonProperty("url_logo")
     private String urlLogo;

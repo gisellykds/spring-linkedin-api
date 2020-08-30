@@ -12,7 +12,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @RestController
-@RequestMapping("/api/v1/linkedin")
+@RequestMapping("/api/v1/linkedin/perfil")
 @Validated
 @CrossOrigin
 public class PerfilController {
@@ -24,13 +24,6 @@ public class PerfilController {
     @ResponseStatus(HttpStatus.CREATED)
     public Perfil criar(@RequestBody @Valid @NotNull PerfilEntrada perfilEntrada) throws Exception {
         return perfilService.novoPerfil(perfilEntrada);
-    }
-
-    @GetMapping("")
-    @ResponseStatus(HttpStatus.CREATED)
-    public String teste() {
-        ApiLinkedinException apiLinkedinException = new ApiLinkedinException(HttpStatus.NOT_FOUND, "TESTE-1");
-        return apiLinkedinException.getMessage();
     }
 
 }

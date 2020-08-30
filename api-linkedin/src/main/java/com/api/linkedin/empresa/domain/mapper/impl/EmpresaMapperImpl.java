@@ -4,7 +4,10 @@ import com.api.linkedin.empresa.domain.mapper.EmpresaMapper;
 import com.api.linkedin.empresa.domain.model.EmpresaEntrada;
 import com.api.linkedin.empresa.domain.model.EmpresaSaida;
 import com.api.linkedin.empresa.entity.Empresa;
+import com.api.linkedin.utils.enums.Setor;
 import com.api.linkedin.utils.enums.Status;
+import com.api.linkedin.utils.enums.TipoEmpresa;
+
 import java.util.List;
 import static java.util.stream.Collectors.toList;
 
@@ -18,8 +21,8 @@ public class EmpresaMapperImpl implements EmpresaMapper {
         entity.setNome(empresaEntrada.getNome());
         entity.setStatus(Status.ATIVO);
         entity.setSite(empresaEntrada.getSite());
-        entity.setSetor(empresaEntrada.getSetor());
-        entity.setTipoEmpresa(empresaEntrada.getTipoEmpresa());
+        entity.setSetor(Setor.get(empresaEntrada.getSetor()));
+        entity.setTipoEmpresa(TipoEmpresa.get(empresaEntrada.getTipoEmpresa()));
         entity.setUrlLogo(empresaEntrada.getUrlLogo());
         entity.setSlogan(empresaEntrada.getSlogan());
 
@@ -36,8 +39,8 @@ public class EmpresaMapperImpl implements EmpresaMapper {
 
         entity.setNome(empresaEntrada.getNome());
         entity.setSite(empresaEntrada.getSite());
-        entity.setSetor(empresaEntrada.getSetor());
-        entity.setTipoEmpresa(empresaEntrada.getTipoEmpresa());
+        entity.setSetor(Setor.get(empresaEntrada.getSetor()));
+        entity.setTipoEmpresa(TipoEmpresa.get(empresaEntrada.getTipoEmpresa()));
         entity.setUrlLogo(empresaEntrada.getUrlLogo());
         entity.setSlogan(empresaEntrada.getSlogan());
 

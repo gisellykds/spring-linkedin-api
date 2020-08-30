@@ -1,19 +1,22 @@
 package com.api.linkedin.utils.enums;
 
+import com.api.linkedin.utils.exception.response.ApiLinkedinException;
 import lombok.Getter;
+import org.springframework.http.HttpStatus;
+import java.util.Arrays;
 
 public enum TipoEmprego {
-    TEMPO_INTEGRAL("0"),
-    MEIO_PERIODO("1"),
-    AUTONOMO("2"),
-    FREELANCE("3"),
-    TEMPORARIO("4"),
-    ESTAGIO("5"),
-    APRENDIZ("6"),
-    INTERMITENTE("7"),
-    TERCEIRIZADO("8"),
-    TRAINEE("9"),
-    DEFAULT("");
+    TEMPO_INTEGRAL("TEMPO_INTEGRAL"),
+    MEIO_PERIODO("MEIO_PERIODO"),
+    AUTONOMO("AUTONOMO"),
+    FREELANCE("FREELANCE"),
+    TEMPORARIO("TEMPORARIO"),
+    ESTAGIO("ESTAGIO"),
+    APRENDIZ("APRENDIZ"),
+    INTERMITENTE("INTERMITENTE"),
+    TERCEIRIZADO("TERCEIRIZADO"),
+    TRAINEE("TRAINEE"),
+    DEFAULT("DEFAULT");
 
     @Getter
     private String value;
@@ -28,6 +31,6 @@ public enum TipoEmprego {
                 return tipoEmprego;
             }
         }
-        return DEFAULT;
+        throw new ApiLinkedinException(HttpStatus.BAD_REQUEST, "Campo 'tipo_emprego' possui os seguintes valores: " + Arrays.asList(TipoEmprego.values()).toString());
     }
 }

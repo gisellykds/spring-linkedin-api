@@ -1,14 +1,18 @@
 package com.api.linkedin.utils.enums;
 
+import com.api.linkedin.utils.exception.response.ApiLinkedinException;
 import lombok.Getter;
+import org.springframework.http.HttpStatus;
+
+import java.util.Arrays;
 
 public enum TipoSite {
-    PESSOAL("0"),
-    CORPORATIVO("1"),
-    BLOG("2"),
-    FEED_RSS("3"),
-    PORTFOLIO("4"),
-    DEFAULT("");
+    PESSOAL("PESSOAL"),
+    CORPORATIVO("CORPORATIVO"),
+    BLOG("BLOG"),
+    FEED_RSS("FEED_RSS"),
+    PORTFOLIO("PORTFOLIO"),
+    DEFAULT("DEFAULT");
 
     @Getter
     private String value;
@@ -23,6 +27,6 @@ public enum TipoSite {
                 return tipoSite;
             }
         }
-        return DEFAULT;
+        throw new ApiLinkedinException(HttpStatus.BAD_REQUEST, "Campo 'tipo_site' possui os seguintes valores: " + Arrays.asList(TipoSite.values()));
     }
 }

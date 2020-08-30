@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class PerfilEntrada {
 
     //@NotBlank(message = "{variavel.notblank}" + "nome")

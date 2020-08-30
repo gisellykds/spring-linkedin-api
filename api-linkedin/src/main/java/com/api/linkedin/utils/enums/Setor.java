@@ -1,14 +1,18 @@
 package com.api.linkedin.utils.enums;
 
+import com.api.linkedin.utils.exception.response.ApiLinkedinException;
 import lombok.Getter;
+import org.springframework.http.HttpStatus;
+
+import java.util.Arrays;
 
 public enum Setor {
-    ADMINISTRATIVO("0"),
-    FINANCEIRO("1"),
-    RECURSOS_HUMANOS("2"),
-    COMERCIAL("3"),
-    OPERACIONAL("4"),
-    OUTRO("5");
+    ADMINISTRATIVO("ADMINISTRATIVO"),
+    FINANCEIRO("FINANCEIRO"),
+    RECURSOS_HUMANOS("RECURSOS_HUMANOS"),
+    COMERCIAL("COMERCIAL"),
+    OPERACIONAL("OPERACIONAL"),
+    OUTRO("OUTRO");
 
     @Getter
     private String value;
@@ -17,12 +21,13 @@ public enum Setor {
         this.value = value;
     }
 
-    public Setor get(String text){
+    public static Setor get(String text){
         for (Setor setor : Setor.values()){
             if (setor.getValue().equals(text)) {
                 return setor;
             }
         }
-        return OUTRO;
+        throw new ApiLinkedinException(HttpStatus.BAD_REQUEST, "Campo 'setor' possui os seguintes valores: " + Arrays.asList(Setor.values()).toString());
     }
+
 }

@@ -7,6 +7,7 @@ import com.api.linkedin.empresa.domain.model.EmpresaSaida;
 import com.api.linkedin.empresa.entity.Empresa;
 import com.api.linkedin.empresa.repository.EmpresaRepository;
 import com.api.linkedin.empresa.service.EmpresaService;
+import com.api.linkedin.perfil.service.UsuarioService;
 import com.api.linkedin.utils.validation.ValidationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,10 +20,14 @@ public class EmpresaServiceImpl extends ValidationUtil implements EmpresaService
     @Autowired
     private EmpresaRepository empresaRepository;
 
+    @Autowired
+    private UsuarioService usuarioService;
+
     private EmpresaMapper empresaMapper = new EmpresaMapperImpl();
 
     @Override
     public EmpresaSaida novo(EmpresaEntrada empresaEntrada, Long idUsuario) {
+        usuarioService.verificaUsuarioExisteValidaStatus(idUsuario);
         Empresa entity = empresaMapper.mapToEntity(empresaEntrada, idUsuario);
         entity = empresaRepository.save(entity);
         return empresaMapper.mapToSaida(entity);

@@ -1,6 +1,9 @@
 package com.api.linkedin.vaga.domain.mapper.impl;
 
+import com.api.linkedin.utils.enums.NivelExperiencia;
 import com.api.linkedin.utils.enums.StatusVaga;
+import com.api.linkedin.utils.enums.TipoEmprego;
+import com.api.linkedin.utils.enums.TipoEmpregoVaga;
 import com.api.linkedin.vaga.domain.model.DetalhesVagaSaida;
 import com.api.linkedin.vaga.domain.model.VagaEntrada;
 import com.api.linkedin.vaga.domain.model.VagaSaida;
@@ -50,8 +53,8 @@ public class VagaMapperImpl implements VagaMapper {
         entity.setDescricao(vagaEntrada.getDescricao());
         entity.setEnderecoCidade(vagaEntrada.getEnderecoCidade());
         entity.setFuncoesCargo(vagaEntrada.getFuncoesCargo());
-        entity.setNivelExperiencia(vagaEntrada.getNivelExperiencia());
-        entity.setTipoEmpregoVaga(vagaEntrada.getTipoEmpregoVaga());
+        entity.setNivelExperiencia(NivelExperiencia.get(vagaEntrada.getNivelExperiencia()));
+        entity.setTipoEmpregoVaga(TipoEmpregoVaga.get(vagaEntrada.getTipoEmpregoVaga()));
 
         return entity;
     }

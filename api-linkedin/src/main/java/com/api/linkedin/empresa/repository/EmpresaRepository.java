@@ -13,7 +13,7 @@ public interface EmpresaRepository extends JpaRepository<Empresa, Long> {
 
     @Modifying
     @Transactional
-    @Query("UPDATE Vaga AS v SET v.statusVaga = 'INATIVO' WHERE v.id = :id")
+    @Query("UPDATE Empresa AS e SET e.status = '1' WHERE e.id = :id")
     void updateStatus(@Param("id") Long id);
 
 }
