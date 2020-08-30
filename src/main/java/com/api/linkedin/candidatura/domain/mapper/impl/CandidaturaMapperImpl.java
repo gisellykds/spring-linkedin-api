@@ -3,18 +3,22 @@ package com.api.linkedin.candidatura.domain.mapper.impl;
 import com.api.linkedin.candidatura.domain.mapper.CandidaturaMapper;
 import com.api.linkedin.candidatura.domain.model.CandidaturaSaida;
 import com.api.linkedin.candidatura.entity.Candidatura;
-
 import java.util.List;
+import static java.util.stream.Collectors.toList;
 
 public class CandidaturaMapperImpl implements CandidaturaMapper {
 
     @Override
     public List<CandidaturaSaida> mapToSaida(List<Candidatura> candidaturas) {
-        return null;
+        return candidaturas.stream().map(this::mapToSaida).collect(toList());
     }
 
     @Override
     public CandidaturaSaida mapToSaida(Candidatura candidatura) {
-        return null;
+        CandidaturaSaida saida = new CandidaturaSaida();
+        saida.setIdVaga(candidatura.getIdVaga());
+        saida.setIdPerfil(candidatura.getIdUsuario());
+        saida.setDataCandidatura(candidatura.getDataCandidatura());
+        return saida;
     }
 }

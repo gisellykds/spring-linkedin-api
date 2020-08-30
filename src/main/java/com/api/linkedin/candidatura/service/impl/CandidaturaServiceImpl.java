@@ -6,24 +6,22 @@ import com.api.linkedin.candidatura.domain.model.CandidaturaSaida;
 import com.api.linkedin.candidatura.entity.Candidatura;
 import com.api.linkedin.candidatura.repository.CandidaturaRepository;
 import com.api.linkedin.candidatura.service.CandidaturaService;
-import com.api.linkedin.perfil.entity.Usuario;
-import com.api.linkedin.perfil.repository.UsuarioRepository;
+import com.api.linkedin.perfil.service.UsuarioService;
 import com.api.linkedin.utils.validation.ValidationUtil;
 import com.api.linkedin.vaga.service.VagaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CandidaturaServiceImpl extends ValidationUtil implements CandidaturaService {
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private CandidaturaRepository candidaturaRepository;
 
     @Autowired
-    private CandidaturaRepository candidaturaRepository;
+    private UsuarioService usuarioService;
 
     @Autowired
     private VagaService vagaService;
@@ -32,8 +30,10 @@ public class CandidaturaServiceImpl extends ValidationUtil implements Candidatur
 
     @Override
     public void novo(Long idVaga, Long idUsuario) {
-        verificaUsuarioExiste(idUsuario);
+        usuarioService.verificaExisteValidaStatus(idUsuario);
         vagaService.verificaExisteValidaStatus(idVaga);
+        CandidaturaSaida procuraExistencia = buscaCandidaturasPorVagaEUsuario(idVaga, idUsuario);
+        verificaIsNull(procuraExistencia, "CANDIDATURA-1");
         Candidatura entity = new Candidatura(idVaga, idUsuario);
         candidaturaRepository.save(entity);
         vagaService.iteraQuantidadeCandidaturas(idVaga);
@@ -49,7 +49,8 @@ public class CandidaturaServiceImpl extends ValidationUtil implements Candidatur
 
     @Override
     public CandidaturaSaida buscaCandidaturasPorVagaEUsuario(Long idVaga, Long idUsuario) {
-        verificaUsuarioExiste(idUsuario);
+        usuarioService.verificaExisteValidaStatus(idUsuario);
+        vagaService.verificaExisteValidaStatus(idVaga);
         Candidatura candidatura = candidaturaRepository.findAllByIdVagaAndIdUsuario(idVaga, idUsuario);
         verificaIsNotNull(candidatura, "COD-1");
         return candidaturaMapper.mapToSaida(candidatura);
@@ -57,15 +58,10 @@ public class CandidaturaServiceImpl extends ValidationUtil implements Candidatur
 
     @Override
     public List<CandidaturaSaida> buscaCandidaturasPorUsuario(Long idUsuario) {
-        verificaUsuarioExiste(idUsuario);
+        usuarioService.verificaExisteValidaStatus(idUsuario);
         List<Candidatura> candidaturas = candidaturaRepository.findAllByIdUsuario(idUsuario);
         verificaListaVazia(candidaturas);
         return candidaturaMapper.mapToSaida(candidaturas);
-    }
-
-    private void verificaUsuarioExiste(Long idUsuario) {
-        Optional<Usuario> usuario = usuarioRepository.findById(idUsuario);
-        verificaIsPresente(usuario, "USUARIO-1");
     }
 
 
