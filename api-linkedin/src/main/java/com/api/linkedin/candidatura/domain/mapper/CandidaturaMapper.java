@@ -1,6 +1,6 @@
 package com.api.linkedin.candidatura.domain.mapper;
 
-import com.api.linkedin.candidatura.domain.CandidaturaSaida;
+import com.api.linkedin.candidatura.domain.model.CandidaturaSaida;
 import com.api.linkedin.candidatura.entity.Candidatura;
 
 import java.util.List;

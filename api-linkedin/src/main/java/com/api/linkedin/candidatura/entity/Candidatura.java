@@ -18,13 +18,13 @@ public class Candidatura {
     private Long idVaga;
 
     @Column(name = "id_usuario", nullable = false)
-    private Long idPerfil;
+    private Long idUsuario;
 
     @Column(name = "data_candidatura", nullable = false)
     private LocalDate dataCandidatura;
 
-    public Candidatura(Long idVaga, Long idPerfil){
+    public Candidatura(Long idVaga, Long idUsuario){
         this.idVaga = idVaga;
-        this.idPerfil = idPerfil;
+        this.idUsuario = idUsuario;
     }
 }

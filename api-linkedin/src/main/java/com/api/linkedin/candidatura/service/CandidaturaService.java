@@ -1,11 +1,11 @@
 package com.api.linkedin.candidatura.service;
 
-import com.api.linkedin.candidatura.domain.CandidaturaSaida;
+import com.api.linkedin.candidatura.domain.model.CandidaturaSaida;
 import java.util.List;
 
 public interface CandidaturaService {
 
-    public void candidatura(Long idVaga, Long idUsuario);
+    public void novo(Long idVaga, Long idUsuario);
 
     public List<CandidaturaSaida> buscaCandidaturasPorVaga(Long idVaga);
 

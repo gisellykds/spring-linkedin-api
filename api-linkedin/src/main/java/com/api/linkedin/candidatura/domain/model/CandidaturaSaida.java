@@ -1,4 +1,4 @@
-package com.api.linkedin.candidatura.domain;
+package com.api.linkedin.candidatura.domain.model;
 
 import java.time.LocalDate;
 

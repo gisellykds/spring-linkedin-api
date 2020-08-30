@@ -1,6 +1,6 @@
 package com.api.linkedin.candidatura.service.impl;
 
-import com.api.linkedin.candidatura.domain.CandidaturaSaida;
+import com.api.linkedin.candidatura.domain.model.CandidaturaSaida;
 import com.api.linkedin.candidatura.domain.mapper.CandidaturaMapper;
 import com.api.linkedin.candidatura.domain.mapper.impl.CandidaturaMapperImpl;
 import com.api.linkedin.candidatura.entity.Candidatura;
@@ -8,7 +8,7 @@ import com.api.linkedin.candidatura.repository.CandidaturaRepository;
 import com.api.linkedin.candidatura.service.CandidaturaService;
 import com.api.linkedin.perfil.entity.Usuario;
 import com.api.linkedin.perfil.repository.UsuarioRepository;
-import com.api.linkedin.utils.exception.ValidationUtil;
+import com.api.linkedin.utils.validation.ValidationUtil;
 import com.api.linkedin.vaga.entity.Vaga;
 import com.api.linkedin.vaga.repository.VagaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +31,7 @@ public class CandidaturaServiceImpl extends ValidationUtil implements Candidatur
     private CandidaturaMapper candidaturaMapper = new CandidaturaMapperImpl();
 
     @Override
-    public void candidatura(Long idVaga, Long idUsuario) {
+    public void novo(Long idVaga, Long idUsuario) {
         verificaUsuarioExiste(idUsuario);
         verificaVagaExiste(idVaga);
         Candidatura entity = new Candidatura(idVaga, idUsuario);
@@ -50,7 +50,7 @@ public class CandidaturaServiceImpl extends ValidationUtil implements Candidatur
     @Override
     public CandidaturaSaida buscaCandidaturasPorVagaEUsuario(Long idVaga, Long idUsuario) {
         verificaUsuarioExiste(idUsuario);
-        Candidatura candidatura = candidaturaRepository.findAllByIdVagaAndIdUsuario(idUsuario);
+        Candidatura candidatura = candidaturaRepository.findAllByIdVagaAndIdUsuario(idVaga, idUsuario);
         verificaIsNotNull(candidatura, "COD-1");
         return candidaturaMapper.mapToSaida(candidatura);
     }
