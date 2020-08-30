@@ -14,6 +14,10 @@ public interface EmpresaRepository extends JpaRepository<Empresa, Long> {
     @Modifying
     @Transactional
     @Query("UPDATE Empresa AS e SET e.status = '1' WHERE e.id = :id")
-    void updateStatus(@Param("id") Long id);
+    void updateStatusInativa(@Param("id") Long id);
 
+    @Modifying
+    @Transactional
+    @Query("UPDATE Empresa AS e SET e.status = '0' WHERE e.id = :id")
+    void updateStatusAtiva(Long id);
 }

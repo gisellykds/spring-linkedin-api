@@ -19,4 +19,5 @@ public interface EmpresaService {
 
     public void verificaEmpresaExisteValidaStatus(Long idEmpresa);
 
+    public void ativa(Long id);
 }

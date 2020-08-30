@@ -11,7 +11,6 @@ import com.api.linkedin.perfil.service.UsuarioService;
 import com.api.linkedin.utils.validation.ValidationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -28,7 +27,7 @@ public class EmpresaServiceImpl extends ValidationUtil implements EmpresaService
 
     @Override
     public EmpresaSaida novo(EmpresaEntrada empresaEntrada, Long idUsuario) {
-        usuarioService.verificaUsuarioExisteValidaStatus(idUsuario);
+        usuarioService.verificaExisteValidaStatus(idUsuario);
         Empresa entity = empresaMapper.mapToEntity(empresaEntrada, idUsuario);
         entity = empresaRepository.save(entity);
         return empresaMapper.mapToSaida(entity);
@@ -37,7 +36,13 @@ public class EmpresaServiceImpl extends ValidationUtil implements EmpresaService
     @Override
     public void desativa(Long id) {
         verificaEmpresaExisteValidaStatus(id);
-        empresaRepository.updateStatus(id);
+        empresaRepository.updateStatusInativa(id);
+    }
+
+    @Override
+    public void ativa(Long id) {
+        verificaEmpresaExisteValidaStatusInativa(id);
+        empresaRepository.updateStatusAtiva(id);
     }
 
     @Override
@@ -57,15 +62,21 @@ public class EmpresaServiceImpl extends ValidationUtil implements EmpresaService
     @Override
     public EmpresaSaida atualiza(EmpresaEntrada empresaEntrada, Long id) {
         Empresa entity = validaEmpresaExiste(id);
+        verificaIsInativa(entity.getStatus(), "EMPRESA-3");
         Empresa update = empresaMapper.mapToEntityUpdate(empresaEntrada, entity);
-        update = empresaRepository.save(entity);
-        return empresaMapper.mapToSaida(entity);
+        update = empresaRepository.save(update);
+        return empresaMapper.mapToSaida(update);
     }
 
     @Override
     public void verificaEmpresaExisteValidaStatus(Long idEmpresa) {
         Empresa empresa = validaEmpresaExiste(idEmpresa);
-        verificaIsInativa(empresa.getStatus(), "EMPRESA-2");
+        verificaIsInativa(empresa.getStatus(), "EMPRESA-3");
+    }
+
+    private void verificaEmpresaExisteValidaStatusInativa(Long idEmpresa) {
+        Empresa empresa = validaEmpresaExiste(idEmpresa);
+        verificaIsAtiva(empresa.getStatus(), "EMPRESA-4");
     }
 
     private Empresa validaEmpresaExiste(Long idEmpresa) {
