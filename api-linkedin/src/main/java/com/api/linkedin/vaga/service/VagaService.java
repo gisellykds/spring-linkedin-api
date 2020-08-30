@@ -2,8 +2,9 @@ package com.api.linkedin.vaga.service;
 
 import com.api.linkedin.utils.enums.NivelExperiencia;
 import com.api.linkedin.utils.enums.TipoEmpregoVaga;
-import com.api.linkedin.vaga.domain.VagaEntrada;
-import com.api.linkedin.vaga.domain.VagaSaida;
+import com.api.linkedin.vaga.domain.model.VagaEntrada;
+import com.api.linkedin.vaga.domain.model.VagaSaida;
+
 import java.util.List;
 
 public interface VagaService {
@@ -24,4 +25,9 @@ public interface VagaService {
 
     public List<VagaSaida> buscaTodasPorTipoEmpregoVaga(TipoEmpregoVaga tipoEmpregoVaga);
 
+    public void verificaExisteValidaStatus(Long id);
+
+    public void verificaExiste(Long id);
+
+    public void iteraQuantidadeCandidaturas(Long idVaga);
 }

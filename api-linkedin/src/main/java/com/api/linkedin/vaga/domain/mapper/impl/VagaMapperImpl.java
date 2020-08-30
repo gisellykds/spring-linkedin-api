@@ -1,15 +1,13 @@
-package com.api.linkedin.vaga.mapper.impl;
+package com.api.linkedin.vaga.domain.mapper.impl;
 
 import com.api.linkedin.utils.enums.StatusVaga;
-import com.api.linkedin.vaga.domain.DetalhesVagaSaida;
-import com.api.linkedin.vaga.domain.VagaEntrada;
-import com.api.linkedin.vaga.domain.VagaSaida;
+import com.api.linkedin.vaga.domain.model.DetalhesVagaSaida;
+import com.api.linkedin.vaga.domain.model.VagaEntrada;
+import com.api.linkedin.vaga.domain.model.VagaSaida;
 import com.api.linkedin.vaga.entity.DetalhesVaga;
 import com.api.linkedin.vaga.entity.Vaga;
-import com.api.linkedin.vaga.mapper.VagaMapper;
+import com.api.linkedin.vaga.domain.mapper.VagaMapper;
 
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;

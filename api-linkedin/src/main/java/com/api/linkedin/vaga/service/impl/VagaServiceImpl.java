@@ -1,17 +1,16 @@
 package com.api.linkedin.vaga.service.impl;
 
-import com.api.linkedin.empresa.entity.Empresa;
-import com.api.linkedin.empresa.repository.EmpresaRepository;
+import com.api.linkedin.empresa.service.EmpresaService;
 import com.api.linkedin.utils.enums.NivelExperiencia;
 import com.api.linkedin.utils.enums.StatusVaga;
 import com.api.linkedin.utils.enums.TipoEmpregoVaga;
 import com.api.linkedin.utils.validation.ValidationUtil;
-import com.api.linkedin.vaga.domain.VagaEntrada;
-import com.api.linkedin.vaga.domain.VagaSaida;
+import com.api.linkedin.vaga.domain.model.VagaEntrada;
+import com.api.linkedin.vaga.domain.model.VagaSaida;
 import com.api.linkedin.vaga.entity.DetalhesVaga;
 import com.api.linkedin.vaga.entity.Vaga;
-import com.api.linkedin.vaga.mapper.VagaMapper;
-import com.api.linkedin.vaga.mapper.impl.VagaMapperImpl;
+import com.api.linkedin.vaga.domain.mapper.VagaMapper;
+import com.api.linkedin.vaga.domain.mapper.impl.VagaMapperImpl;
 import com.api.linkedin.vaga.repository.DetalhesVagaRepository;
 import com.api.linkedin.vaga.repository.VagaRepository;
 import com.api.linkedin.vaga.service.VagaService;
@@ -26,16 +25,18 @@ public class VagaServiceImpl extends ValidationUtil implements VagaService {
 
     @Autowired
     private VagaRepository vagaRepository;
-    @Autowired
-    private EmpresaRepository empresaRepository;
+
     @Autowired
     private DetalhesVagaRepository detalhesVagaRepository;
+
+    @Autowired
+    private EmpresaService empresaService;
 
     private VagaMapper vagaMapper = new VagaMapperImpl();
 
     @Override
     public VagaSaida novo(VagaEntrada vagaEntrada, Long idEmpresa) {
-        verificaEmpresaExisteValidaStatus(idEmpresa);
+        empresaService.verificaEmpresaExisteValidaStatus(idEmpresa);
         Vaga entity = vagaRepository.save(vagaMapper.mapToEntity(vagaEntrada, idEmpresa));
         return vagaMapper.mapToSaida(entity);
     }
@@ -93,16 +94,25 @@ public class VagaServiceImpl extends ValidationUtil implements VagaService {
         return vagaMapper.mapToSaida(vagas);
     }
 
-    private void verificaEmpresaExisteValidaStatus(Long idEmpresa) {
-        Optional<Empresa> empresa = empresaRepository.findById(idEmpresa);
-        verificaIsPresente(empresa, "EMPRESA-1");
-        verificaIsInativa(empresa.get().getStatus(), "EMPRESA-2");
-    }
-
-    private void verificaExisteValidaStatus(Long id) {
+    @Override
+    public void verificaExisteValidaStatus(Long id) {
         Optional<Vaga> vaga = vagaRepository.findById(id);
         verificaIsPresente(vaga, "VAGA-1");
         verificaIsInativa(vaga.get().getStatusVaga(), "VAGA-2");
+    }
+
+    @Override
+    public void verificaExiste(Long id) {
+        Optional<Vaga> vaga = vagaRepository.findById(id);
+        verificaIsPresente(vaga, "VAGA-1");
+    }
+
+    @Override
+    public void iteraQuantidadeCandidaturas(Long idVaga) {
+        Optional<Vaga> entity = vagaRepository.findById(idVaga);
+        Vaga vaga = entity.get();
+        vaga.setNumeroCandidaturas(vaga.getNumeroCandidaturas() + 1);
+        vagaRepository.save(vaga);
     }
 
     private List<Vaga> buscaVagasPorDetalhes(List<DetalhesVaga> detalhesVagas, List<Vaga> vagas) {
@@ -119,7 +129,6 @@ public class VagaServiceImpl extends ValidationUtil implements VagaService {
         }
         return saida;
     }
-
 
 }
 

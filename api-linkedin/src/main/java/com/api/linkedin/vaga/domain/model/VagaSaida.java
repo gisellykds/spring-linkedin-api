@@ -1,4 +1,4 @@
-package com.api.linkedin.vaga.domain;
+package com.api.linkedin.vaga.domain.model;
 
 import com.api.linkedin.utils.enums.StatusVaga;
 import com.fasterxml.jackson.annotation.JsonProperty;

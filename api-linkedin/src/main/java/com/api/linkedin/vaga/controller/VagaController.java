@@ -2,8 +2,8 @@ package com.api.linkedin.vaga.controller;
 
 import com.api.linkedin.utils.enums.NivelExperiencia;
 import com.api.linkedin.utils.enums.TipoEmpregoVaga;
-import com.api.linkedin.vaga.domain.VagaEntrada;
-import com.api.linkedin.vaga.domain.VagaSaida;
+import com.api.linkedin.vaga.domain.model.VagaEntrada;
+import com.api.linkedin.vaga.domain.model.VagaSaida;
 import com.api.linkedin.vaga.service.VagaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -60,13 +60,15 @@ public class VagaController {
 
     @GetMapping("/get-nivel")
     @ResponseStatus(HttpStatus.OK)
-    public List<VagaSaida> buscaTodasPorNivelExperiencia(@RequestParam(value = "nivel_experiencia") @Valid @NotNull NivelExperiencia nivelExperiencia){
+    public List<VagaSaida> buscaTodasPorNivelExperiencia(@RequestParam(value = "nivel_experiencia")
+                                                         @Valid @NotNull NivelExperiencia nivelExperiencia){
         return vagaService.buscaTodasPorNivelExperiencia(nivelExperiencia);
     }
 
     @GetMapping("/get-tipo")
     @ResponseStatus(HttpStatus.OK)
-    public List<VagaSaida> buscaTodasPorTipoEmpregoVaga(@RequestParam(value = "tipo_emprego") @Valid @NotNull TipoEmpregoVaga tipoEmpregoVaga){
+    public List<VagaSaida> buscaTodasPorTipoEmpregoVaga(@RequestParam(value = "tipo_emprego") @Valid
+                                                        @NotNull TipoEmpregoVaga tipoEmpregoVaga){
         return vagaService.buscaTodasPorTipoEmpregoVaga(tipoEmpregoVaga);
     }
 
