@@ -1,8 +1,8 @@
 package com.api.linkedin.perfil.entity;
 
 import lombok.Data;
+
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.YearMonth;
 
 @Data

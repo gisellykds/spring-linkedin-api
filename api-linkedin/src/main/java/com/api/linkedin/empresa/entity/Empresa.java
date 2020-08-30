@@ -4,6 +4,7 @@ import com.api.linkedin.utils.enums.Setor;
 import com.api.linkedin.utils.enums.Status;
 import com.api.linkedin.utils.enums.TipoEmpresa;
 import lombok.Data;
+
 import javax.persistence.*;
 
 @Data

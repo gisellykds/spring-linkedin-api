@@ -2,6 +2,7 @@ package com.api.linkedin.perfil.entity;
 
 import com.api.linkedin.utils.enums.TipoSite;
 import lombok.Data;
+
 import javax.persistence.*;
 
 @Data

@@ -1,9 +1,8 @@
 package com.api.linkedin.vaga.domain.model;
 
-import com.api.linkedin.utils.enums.NivelExperiencia;
-import com.api.linkedin.utils.enums.TipoEmpregoVaga;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+
 import javax.validation.constraints.NotBlank;
 
 @Data

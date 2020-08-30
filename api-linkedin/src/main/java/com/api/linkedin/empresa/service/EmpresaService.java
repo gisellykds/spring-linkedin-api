@@ -2,6 +2,7 @@ package com.api.linkedin.empresa.service;
 
 import com.api.linkedin.empresa.domain.model.EmpresaEntrada;
 import com.api.linkedin.empresa.domain.model.EmpresaSaida;
+
 import java.util.List;
 
 public interface EmpresaService {

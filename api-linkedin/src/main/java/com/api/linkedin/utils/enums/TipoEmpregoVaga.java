@@ -3,6 +3,7 @@ package com.api.linkedin.utils.enums;
 import com.api.linkedin.utils.exception.response.ApiLinkedinException;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
+
 import java.util.Arrays;
 
 public enum  TipoEmpregoVaga {

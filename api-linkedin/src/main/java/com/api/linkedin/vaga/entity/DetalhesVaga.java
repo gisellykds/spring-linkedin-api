@@ -3,6 +3,7 @@ package com.api.linkedin.vaga.entity;
 import com.api.linkedin.utils.enums.NivelExperiencia;
 import com.api.linkedin.utils.enums.TipoEmpregoVaga;
 import lombok.Data;
+
 import javax.persistence.*;
 
 @Data

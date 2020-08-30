@@ -1,6 +1,7 @@
 package com.api.linkedin.utils.exception.response;
 
 import lombok.Getter;
+
 import javax.servlet.http.HttpServletRequest;
 
 @Getter

@@ -1,6 +1,7 @@
 package com.api.linkedin.candidatura.entity;
 
 import lombok.Data;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 

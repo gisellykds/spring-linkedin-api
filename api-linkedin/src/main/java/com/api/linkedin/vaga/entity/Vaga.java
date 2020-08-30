@@ -2,6 +2,7 @@ package com.api.linkedin.vaga.entity;
 
 import com.api.linkedin.utils.enums.StatusVaga;
 import lombok.Data;
+
 import javax.persistence.*;
 
 @Data

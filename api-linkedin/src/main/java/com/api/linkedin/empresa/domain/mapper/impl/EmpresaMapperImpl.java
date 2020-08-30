@@ -9,6 +9,7 @@ import com.api.linkedin.utils.enums.Status;
 import com.api.linkedin.utils.enums.TipoEmpresa;
 
 import java.util.List;
+
 import static java.util.stream.Collectors.toList;
 
 public class EmpresaMapperImpl implements EmpresaMapper {

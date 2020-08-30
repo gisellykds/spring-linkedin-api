@@ -2,14 +2,13 @@ package com.api.linkedin.vaga.domain.mapper.impl;
 
 import com.api.linkedin.utils.enums.NivelExperiencia;
 import com.api.linkedin.utils.enums.StatusVaga;
-import com.api.linkedin.utils.enums.TipoEmprego;
 import com.api.linkedin.utils.enums.TipoEmpregoVaga;
+import com.api.linkedin.vaga.domain.mapper.VagaMapper;
 import com.api.linkedin.vaga.domain.model.DetalhesVagaSaida;
 import com.api.linkedin.vaga.domain.model.VagaEntrada;
 import com.api.linkedin.vaga.domain.model.VagaSaida;
 import com.api.linkedin.vaga.entity.DetalhesVaga;
 import com.api.linkedin.vaga.entity.Vaga;
-import com.api.linkedin.vaga.domain.mapper.VagaMapper;
 
 import java.util.List;
 
