@@ -1,4 +1,4 @@
-package com.api.linkedin.utils.exception;
+package com.api.linkedin.utils.exception.response;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

@@ -1,7 +1,8 @@
-package com.api.linkedin.utils.exception;
+package com.api.linkedin.utils.validation;
 
 import com.api.linkedin.utils.enums.Status;
 import com.api.linkedin.utils.enums.StatusVaga;
+import com.api.linkedin.utils.exception.response.ApiLinkedinException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;

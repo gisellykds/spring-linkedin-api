@@ -1,5 +1,7 @@
 package com.api.linkedin.utils.exception;
 
+import com.api.linkedin.utils.exception.response.ApiLinkedinException;
+import com.api.linkedin.utils.exception.response.ResponseException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import javax.servlet.http.HttpServletRequest;

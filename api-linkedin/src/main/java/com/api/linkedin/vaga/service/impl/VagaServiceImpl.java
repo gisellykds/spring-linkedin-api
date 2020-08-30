@@ -5,7 +5,7 @@ import com.api.linkedin.empresa.repository.EmpresaRepository;
 import com.api.linkedin.utils.enums.NivelExperiencia;
 import com.api.linkedin.utils.enums.StatusVaga;
 import com.api.linkedin.utils.enums.TipoEmpregoVaga;
-import com.api.linkedin.utils.exception.ValidationUtil;
+import com.api.linkedin.utils.validation.ValidationUtil;
 import com.api.linkedin.vaga.domain.VagaEntrada;
 import com.api.linkedin.vaga.domain.VagaSaida;
 import com.api.linkedin.vaga.entity.DetalhesVaga;
