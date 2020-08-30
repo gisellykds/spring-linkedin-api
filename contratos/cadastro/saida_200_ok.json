@@ -1,4 +1,0 @@
-{
-  "mensagem":"Perfil criado com sucesso",
-  "url_perfil":"localhost:8080/v1/in/{id_user}"
-}
