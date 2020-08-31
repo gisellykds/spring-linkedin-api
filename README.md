@@ -9,9 +9,6 @@ Java 8, Spring Boot, Spring Data, JPA & Hibernate, Rest e Arquitetura MVC, Swagg
 
 A API escolhida para ser o MVP a ser construído foi a que servirá o LinkedIn com os seguintes endpoints.
 
-> OBS: Collection para ser exportada e usada no Postman []
-
-
 ````
 VAGA 
 - Cadastrar vaga por ID empresa
@@ -24,7 +21,7 @@ VAGA
 - Listar todas as vagas por tipo de emprego
 
 EMPRESA
-- Cadastrar empresa por ID Usuario
+- Cadastrar empresa por ID Perfil
 - Desativar empresa
 - Ativar empresa
 - Buscar por identificador unico (ID)
@@ -32,9 +29,28 @@ EMPRESA
 - Atualizar empresa por identificador unico (ID)
 
 CANDIDATURA 
-- Candidatar-se por ID vaga e ID usuario
+- Candidatar-se por ID vaga e ID Perfil
 - Listar candidaturas por vaga (ID)
 - Listar candidaturas Usuario (ID)
-- Buscar candidatura por ID vaga e ID Usuario
+- Buscar candidatura por ID vaga e ID Perfil
+
+PERFIL
+- Cadastrar perfil
+- Cadastrar Experiencia Profissional por ID perfil
+- Cadastrar Formacao Academica por ID perfil
+- Cadastrar Licenca Certificado por ID perfil
+
+````
+
+PS: Temos features para implementações posteriores 😊💻
+
+````
+Experiência profissional, Formação Acadêmica e Licença Certificados
+
+- Update
+- Listagem
+- Listagem por Id Perfil
+- Busca por id
+- Delete
 
 ````
