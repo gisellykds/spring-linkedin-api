@@ -1,4 +1,4 @@
-package com.api.linkedin.perfil.domain.model;
+package com.api.linkedin.perfil.domain.model.formacaoacademica;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;

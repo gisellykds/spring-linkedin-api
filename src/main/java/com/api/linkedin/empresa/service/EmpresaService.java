@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface EmpresaService {
 
-    public EmpresaSaida novo(EmpresaEntrada empresaEntrada, Long idUsuario);
+    public EmpresaSaida novo(EmpresaEntrada empresaEntrada, Long idPerfil);
 
     public void desativa(Long id);
 

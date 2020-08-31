@@ -18,10 +18,10 @@ public class CandidaturaController {
     @Autowired
     private CandidaturaService candidaturaService;
 
-    @PostMapping("/novo/{id_vaga}/{id_usuario}")
+    @PostMapping("/novo/{id_vaga}/{id_perfil}")
     @ResponseStatus(HttpStatus.CREATED)
-    private void novo(@PathVariable("id_vaga") Long idVaga, @PathVariable("id_usuario") Long idUsuario){
-        candidaturaService.novo(idVaga, idUsuario);
+    private void novo(@PathVariable("id_vaga") Long idVaga, @PathVariable("id_perfil") Long idPerfil){
+        candidaturaService.novo(idVaga, idPerfil);
     }
 
     @GetMapping("/get-vaga/{id_vaga}")
@@ -30,17 +30,17 @@ public class CandidaturaController {
         return candidaturaService.buscaCandidaturasPorVaga(idVaga);
     }
 
-    @GetMapping("/get-usuario/{id_usuario}")
+    @GetMapping("/get-perfil/{id_perfil}")
     @ResponseStatus(HttpStatus.OK)
-    private List<CandidaturaSaida> buscaCandidaturasPorUsuario(@PathVariable("id_usuario") Long idUsuario){
-        return candidaturaService.buscaCandidaturasPorUsuario(idUsuario);
+    private List<CandidaturaSaida> buscaCandidaturasPorPerfil(@PathVariable("id_perfil") Long idPerfil){
+        return candidaturaService.buscaCandidaturasPorUsuario(idPerfil);
     }
 
-    @GetMapping("/get-vaga-usuario/{id_vaga}/{id_usuario}")
+    @GetMapping("/get-vaga-perfil/{id_vaga}/{id_perfil}")
     @ResponseStatus(HttpStatus.OK)
-    private CandidaturaSaida buscaCandidaturasPorVagaEUsuario(@PathVariable("id_vaga") Long idVaga,
-                                                              @PathVariable("id_usuario") Long idUsuario){
-        return candidaturaService.buscaCandidaturasPorVagaEUsuario(idVaga, idUsuario);
+    private CandidaturaSaida buscaCandidaturasPorVagaEPerfil(@PathVariable("id_vaga") Long idVaga,
+                                                              @PathVariable("id_perfil") Long idPerfil){
+        return candidaturaService.buscaCandidaturasPorVagaEUsuario(idVaga, idPerfil);
     }
 
 }

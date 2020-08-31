@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface EmpresaMapper {
 
-    public Empresa mapToEntity(EmpresaEntrada empresaEntrada, Long idUsuario);
+    public Empresa mapToEntity(EmpresaEntrada empresaEntrada, Long idPerfil);
 
     public EmpresaSaida mapToSaida(Empresa empresa);
 

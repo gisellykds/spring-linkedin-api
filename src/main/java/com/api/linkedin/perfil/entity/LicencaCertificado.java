@@ -15,6 +15,9 @@ public class LicencaCertificado {
     @Column(name = "id", unique = true)
     private Long id;
 
+    @Column(name = "id_usuario", nullable = false)
+    private Long idPerfil;
+
     @Column(name = "nome", nullable = false)
     private String nome;
 

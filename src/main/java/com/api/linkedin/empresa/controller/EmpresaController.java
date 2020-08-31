@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -20,11 +21,11 @@ public class EmpresaController {
     @Autowired
     private EmpresaService empresaService;
 
-    @PostMapping("/novo/{id_usuario}")
+    @PostMapping("/novo/{id_perfil}")
     @ResponseStatus(HttpStatus.CREATED)
     public EmpresaSaida novo(@RequestBody @Valid @NotNull EmpresaEntrada empresaEntrada,
-                                     @PathVariable("id_usuario") @NotNull Long idUsuario){
-        return empresaService.novo(empresaEntrada, idUsuario);
+                                     @PathVariable("id_perfil") @NotNull Long idPerfil){
+        return empresaService.novo(empresaEntrada, idPerfil);
     }
 
     @PatchMapping("/desativa/{id}")

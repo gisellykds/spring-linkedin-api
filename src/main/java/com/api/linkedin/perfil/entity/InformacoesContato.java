@@ -3,8 +3,8 @@ package com.api.linkedin.perfil.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -18,10 +18,10 @@ public class InformacoesContato {
 
     @OneToMany(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "informacoes_email_fk", referencedColumnName = "id")
-    private Set<EmailPerfil> email = new HashSet<>();
+    private List<EmailPerfil> email = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "informacoes_site_fk", referencedColumnName = "id")
-    private Set<SitePerfil> site = new HashSet<>();
+    private List<SitePerfil> site = new ArrayList<>();
 
 }

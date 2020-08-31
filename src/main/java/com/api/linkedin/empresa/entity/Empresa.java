@@ -17,8 +17,8 @@ public class Empresa {
     @Column(name = "id", unique = true)
     private Long id;
 
-    @Column(name = "id_usuario", nullable = false)
-    private Long idUsuario;
+    @Column(name = "id_perfil", nullable = false)
+    private Long idPerfil;
 
     @Column(name = "status", nullable = false)
     private Status status;

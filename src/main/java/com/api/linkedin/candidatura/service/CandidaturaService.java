@@ -6,12 +6,12 @@ import java.util.List;
 
 public interface CandidaturaService {
 
-    public void novo(Long idVaga, Long idUsuario);
+    public void novo(Long idVaga, Long idPerfil);
 
     public List<CandidaturaSaida> buscaCandidaturasPorVaga(Long idVaga);
 
-    public CandidaturaSaida buscaCandidaturasPorVagaEUsuario(Long idVaga, Long idUsuario);
+    public CandidaturaSaida buscaCandidaturasPorVagaEUsuario(Long idVaga, Long idPerfil);
 
-    public List<CandidaturaSaida> buscaCandidaturasPorUsuario(Long idUsuario);
+    public List<CandidaturaSaida> buscaCandidaturasPorUsuario(Long idPerfil);
 
 }

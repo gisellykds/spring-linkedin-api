@@ -16,13 +16,16 @@ public class ExperienciaProfissional {
     @Column(name = "id", unique = true)
     private Long id;
 
+    @Column(name = "id_perfil", nullable = false)
+    private Long idPerfil;
+
     @Column(name = "cargo", nullable = false)
     private String cargo;
 
     @Column(name = "tipo_emprego", nullable = false)
     private TipoEmprego tipoEmprego;
 
-    @Column(name = "descricao", nullable = false)
+    @Column(name = "descricao", nullable = true)
     private String descricao;
 
     @Column(name = "empresa", nullable = false)
@@ -34,7 +37,7 @@ public class ExperienciaProfissional {
     @Column(name = "mes_inicio", nullable = false)
     private YearMonth mesInicio;
 
-    @Column(name = "mes_fim", nullable = false)
+    @Column(name = "mes_fim", nullable = true)
     private YearMonth mesFim;
 
     @OneToOne(cascade = CascadeType.PERSIST)

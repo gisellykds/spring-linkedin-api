@@ -9,9 +9,11 @@ import java.util.List;
 @Repository
 public interface CandidaturaRepository extends JpaRepository<Candidatura, Long> {
 
-    List<Candidatura> findAllByIdVaga(Long idVaga);
 
-    List<Candidatura> findAllByIdUsuario(Long idUsuario);
 
-    Candidatura findAllByIdVagaAndIdUsuario(Long idVaga, Long idUsuario);
+    Candidatura findByIdVagaAndIdPerfil(Long idVaga, Long idPerfil);
+
+    List<Candidatura> findByIdVaga(Long idVaga);
+
+    List<Candidatura> findByIdPerfil(Long idPerfil);
 }

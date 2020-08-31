@@ -15,10 +15,10 @@ import static java.util.stream.Collectors.toList;
 public class EmpresaMapperImpl implements EmpresaMapper {
 
     @Override
-    public Empresa mapToEntity(EmpresaEntrada empresaEntrada, Long idUsuario) {
+    public Empresa mapToEntity(EmpresaEntrada empresaEntrada, Long idPerfil) {
         Empresa entity = new Empresa();
 
-        entity.setIdUsuario(idUsuario);
+        entity.setIdPerfil(idPerfil);
         entity.setNome(empresaEntrada.getNome());
         entity.setStatus(Status.ATIVO);
         entity.setSite(empresaEntrada.getSite());
@@ -35,7 +35,7 @@ public class EmpresaMapperImpl implements EmpresaMapper {
         Empresa entity = new Empresa();
 
         entity.setId(empresa.getId());
-        entity.setIdUsuario(empresa.getIdUsuario());
+        entity.setIdPerfil(empresa.getIdPerfil());
         entity.setStatus(empresa.getStatus());
 
         entity.setNome(empresaEntrada.getNome());
@@ -54,7 +54,7 @@ public class EmpresaMapperImpl implements EmpresaMapper {
         EmpresaSaida saida = new EmpresaSaida();
 
         saida.setId(empresa.getId());
-        saida.setIdUsuario(empresa.getIdUsuario());
+        saida.setIdPerfil(empresa.getIdPerfil());
         saida.setNome(empresa.getNome());
         saida.setStatus(empresa.getStatus());
         saida.setSite(empresa.getSite());

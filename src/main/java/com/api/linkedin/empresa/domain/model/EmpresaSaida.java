@@ -12,8 +12,8 @@ public class EmpresaSaida {
     @JsonProperty("id")
     private Long id;
 
-    @JsonProperty("id_usuario")
-    private Long idUsuario;
+    @JsonProperty("id_perfil")
+    private Long idPerfil;
 
     @JsonProperty("status")
     private Status status;

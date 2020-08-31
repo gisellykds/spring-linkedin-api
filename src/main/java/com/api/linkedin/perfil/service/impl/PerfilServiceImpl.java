@@ -1,33 +1,35 @@
 package com.api.linkedin.perfil.service.impl;
 
 import com.api.linkedin.perfil.domain.mapper.PerfilMapper;
+import com.api.linkedin.perfil.domain.mapper.impl.PerfilMapperImpl;
 import com.api.linkedin.perfil.domain.model.PerfilEntrada;
 import com.api.linkedin.perfil.entity.Perfil;
-import com.api.linkedin.perfil.entity.Usuario;
 import com.api.linkedin.perfil.repository.PerfilRepository;
-import com.api.linkedin.perfil.repository.UsuarioRepository;
 import com.api.linkedin.perfil.service.PerfilService;
-import org.mapstruct.factory.Mappers;
+import com.api.linkedin.utils.validation.ValidationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
-public class PerfilServiceImpl implements PerfilService{
+public class PerfilServiceImpl extends ValidationUtil implements PerfilService{
     @Autowired
     private PerfilRepository perfilRepository;
-    @Autowired
-    private UsuarioRepository usuarioRepository;
 
-    private PerfilMapper perfilMapper = Mappers.getMapper(PerfilMapper.class);
+    private PerfilMapper perfilMapper = new PerfilMapperImpl();
 
     public Perfil novoPerfil(PerfilEntrada entrada) {
-        Usuario usuario = usuarioRepository.save(new Usuario());
-        //verificaIsNotNull(usuario);
-
-        Perfil entity = perfilMapper.mapToEntity(entrada, usuario.getId());
-
+        Perfil entity = perfilMapper.mapToEntity(entrada);
+        entity = perfilRepository.save(new Perfil());
         return perfilRepository.save(entity);
     }
 
+    @Override
+    public void verificaExisteValidaStatus(Long id) {
+        Optional<Perfil> usuario = perfilRepository.findById(id);
+        verificaIsPresente(usuario, "PERFIL-1");
+        verificaIsInativa(usuario.get().getStatus(), "PERFIL-2");
+    }
 
 }

@@ -26,7 +26,7 @@ public enum TipoEmprego {
         this.value = value;
     }
 
-    public TipoEmprego get(String id){
+    public static TipoEmprego get(String id){
         for (TipoEmprego tipoEmprego : TipoEmprego.values()){
             if (tipoEmprego.getValue().equals(id)) {
                 return tipoEmprego;

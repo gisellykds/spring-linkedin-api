@@ -1,4 +1,4 @@
-package com.api.linkedin.perfil.domain.model;
+package com.api.linkedin.perfil.domain.model.localidade;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
@@ -11,15 +11,15 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class LocalidadeEntrada {
 
-    @NotBlank(message = "{variavel.notblank}" + "pais")
+    @NotBlank
     @JsonProperty(value = "pais")
     private String pais;
 
-    @NotBlank(message = "{variavel.notblank}" + "estado")
+    @NotBlank
     @JsonProperty(value = "estado")
     private String estado;
 
-    @NotBlank(message = "{variavel.notblank}" + "cidade")
+    @NotBlank
     @JsonProperty(value = "cidade")
     private String cidade;
 }

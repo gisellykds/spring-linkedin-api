@@ -5,6 +5,8 @@ import com.api.linkedin.perfil.entity.Perfil;
 
 public interface PerfilService {
 
-    public Perfil novoPerfil(PerfilEntrada entrada) throws Exception;
+    public Perfil novoPerfil(PerfilEntrada entrada);
+
+    public void verificaExisteValidaStatus(Long id);
 
 }

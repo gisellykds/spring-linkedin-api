@@ -15,6 +15,9 @@ public class FormacaoAcademica {
     @Column(name = "id", unique = true)
     private Long id;
 
+    @Column(name = "id_usuario")
+    private Long idPerfil;
+
     @Column(name = "formacao", nullable = false)
     private String formacao;
 

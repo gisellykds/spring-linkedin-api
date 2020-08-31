@@ -1,48 +1,37 @@
 package com.api.linkedin.perfil.domain.model;
 
+import com.api.linkedin.perfil.domain.model.localidade.LocalidadeEntrada;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Data
 public class PerfilEntrada {
 
-    //@NotBlank(message = "{variavel.notblank}" + "nome")
+    @NotBlank
     @JsonProperty(value = "nome")
     private String nome;
 
-    //@NotBlank(message = "{variavel.notblank}" + "sobrenome")
+    @NotBlank
     @JsonProperty(value = "sobrenome")
     private String sobrenome;
 
-    //@NotBlank(message = "{variavel.notblank}" + "titulo_perfil")
+    @NotBlank
     @JsonProperty(value = "titulo_perfil")
     private String tituloPerfil;
 
-    //@NotBlank(message = "{variavel.notblank}" + "setor")
+    @NotBlank
     @JsonProperty(value = "setor")
     private String setor;
 
-    //@NotNull(message = "{variavel.notnull}" + "localidade")
+    @NotNull
     @JsonProperty(value = "localidade")
     private LocalidadeEntrada localidade;
 
-    //@NotNull(message = "{variavel.notnull}" + "informacoes_contato")
+    @NotNull
     @JsonProperty(value = "informacoes_contato")
     private InformacoesContatoEntrada informacoesContato;
-
-    //@NotNull(message = "{variavel.notnull}" + "experiencia_profissional")
-    @JsonProperty(value = "experiencias_profissionais")
-    private List<ExperienciaProfissionalEntrada> experienciaProfissional = new ArrayList<>();
-
-    //@NotNull(message = "{variavel.notnull}" + "formacao_academica")
-    @JsonProperty(value = "formacoes_academicas")
-    private List<FormacaoAcademicaEntrada> formacaoAcademica = new ArrayList<>();
-
-    //@NotNull(message = "{variavel.notnull}" + "licenca_certificado")
-    @JsonProperty(value = "licencas_certificados")
-    private List<LicencaCertificadoEntrada> licencaCertificado = new ArrayList<>();
 
 }

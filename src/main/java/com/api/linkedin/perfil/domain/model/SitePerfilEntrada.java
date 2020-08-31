@@ -2,21 +2,18 @@ package com.api.linkedin.perfil.domain.model;
 
 import com.api.linkedin.utils.enums.TipoSite;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AccessLevel;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 
 @Data
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class SitePerfilEntrada {
 
-    @NotBlank(message = "{variavel.notblank}" + "site")
+    @NotBlank
     @JsonProperty(value = "site")
     private String site;
 
-    @NotBlank(message = "{variavel.notblank}" + "tipo_site")
+    @NotBlank
     @JsonProperty(value = "tipo_site")
     private TipoSite tipoSite;
 }
