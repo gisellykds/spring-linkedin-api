@@ -21,8 +21,8 @@ public class PerfilServiceImpl extends ValidationUtil implements PerfilService{
 
     public Perfil novoPerfil(PerfilEntrada entrada) {
         Perfil entity = perfilMapper.mapToEntity(entrada);
-        entity = perfilRepository.save(new Perfil());
-        return perfilRepository.save(entity);
+        entity = perfilRepository.save(entity);
+        return entity;
     }
 
     @Override
