@@ -33,7 +33,6 @@ public class ExperienciaProfissionalEntrada {
     private Boolean trabalhoAtual;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-yyyy")
-    @NotBlank
     @JsonProperty(value = "mes_ano_inicio")
     private YearMonth mesInicio;
 

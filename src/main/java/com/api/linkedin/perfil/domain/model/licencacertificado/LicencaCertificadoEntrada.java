@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.YearMonth;
 
 @Data
@@ -23,11 +24,9 @@ public class LicencaCertificadoEntrada {
     @JsonProperty(value = "url_credencial")
     private String urlCredencial;
 
-    @NotBlank
     @JsonProperty(value = "certificacao_expira", defaultValue = "true")
     private Boolean certificacaoExpira;
 
-    @NotBlank
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-yyyy")
     @JsonProperty(value = "mes_ano_emissao")
     private YearMonth mesAnoEmissao;
