@@ -54,3 +54,48 @@ Experiência profissional, Formação Acadêmica e Licença Certificados
 - Delete
 
 ````
+
+## Vamos fazer o projeto rodar na sua máquina?
+
+Clone o projeto que consta nesse repositório
+No terminal rode o seguinte comando
+
+``
+mvn clean install
+``
+
+Na sua IDE de preferência, vá até o pacote/diretório
+
+``
+com.api.linkedin
+``
+
+Rode a classe main do projeto
+
+``
+ApiLinkedinApplication
+``
+
+Para testar os endpoints utilize a documentação como base! Abra em seu navegador o seguinte link:
+
+``
+http://localhost:8000/swagger-ui.html
+``
+
+A URL base do sistema é 
+
+``
+http://localhost:8000/
+``
+
+Para testar o banco de dados em memória - H2 database - utilize a seguinte url:
+
+JDBCURL: jdbc:h2:mem:app
+
+SENHA:
+
+USERNAME: sa
+
+``
+http://localhost:8000/h2
+``
